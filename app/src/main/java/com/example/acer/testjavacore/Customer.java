@@ -50,22 +50,37 @@ class Customer implements Runnable {
     }
 
     private void leave() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+        }
         LOGGER.info("Customer leaving");
     }
 
     synchronized void waiting() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+        }
         LOGGER.info("OK");
     }
 
     synchronized boolean takeCoffee(ArrayDeque<Customer> customerQueue) {
         Customer customer = customerQueue.pollFirst();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+        }
         LOGGER.info("Customer #" + customer.getCustomerNumber() + ": \'Thanks!\'");
         return true;
     }
 
     private boolean drinking() {
         mRandom = new Random();
-        long timeForDrink = mRandom.nextInt(4_000) + 2_000;
+        long timeForDrink = mRandom.nextInt(10_000) + 5_000;
 
             try {
                 Thread.sleep(timeForDrink);

@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class Bill {
+class Bill {
 
     private String mTypeOfCoffee;
     private double mPrice;
     private String mDateTime;
     private long mCheckNumber;
 
-    public Bill() {
+    Bill() {
 
     }
 
-    public Bill(long checkNumber, String typeOfCoffee, double price, String dateTime) {
+    Bill(long checkNumber, String typeOfCoffee, double price, String dateTime) {
         mCheckNumber = checkNumber;
         mTypeOfCoffee = typeOfCoffee;
         mPrice = price;
         mDateTime = dateTime;
     }
 
-    public String getCurrentDateTime() {
+    String getCurrentDateTime() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
@@ -59,7 +59,7 @@ public class Bill {
         mDateTime = dateTime;
     }
 
-    public boolean addToArray(String[] billsInfo, ArrayList<Bill> bills) {
+    boolean addToArray(String[] billsInfo, ArrayList<Bill> bills) {
         long checkNumber = bills.size();
         String typeOfCoffee = billsInfo[1];
         double price = Double.valueOf(billsInfo[2]);

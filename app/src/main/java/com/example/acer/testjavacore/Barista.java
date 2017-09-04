@@ -5,15 +5,15 @@ import com.example.acer.testjavacore.Utils.ConstantManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Barista {
+class Barista {
 
     private static final Logger LOGGER = Logger.getLogger(Barista.class.getName());
 
-    public void takeOder() {
+    void takeOder() {
         LOGGER.info("What kind of coffee would you like? (Push a button)");
     }
 
-    public synchronized String[] insertBill(int typeOfCoffee, long checkNumber) {
+    String[] insertBill(int typeOfCoffee, long checkNumber) {
         String coffee;
         double price;
         Bill bill = new Bill();
@@ -35,7 +35,7 @@ public class Barista {
         return new String[]{String.valueOf(checkNumber), coffee, String.valueOf(price), dateTime};
     }
 
-    public boolean makeCoffee(String[] args, Customer customer) {
+    boolean makeCoffee(String[] args, Customer customer) {
 
         int typeOfCoffee = Integer.valueOf(args[0]);
         String coffee = args[1];

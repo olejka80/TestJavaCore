@@ -4,14 +4,14 @@ import com.example.acer.testjavacore.Utils.ConstantManager;
 
 import static com.example.acer.testjavacore.MainActivity.LOGGER;
 
-public class CoffeeMachine {
+class CoffeeMachine {
 
     /**
      * This method make a coffee in coffee machine
      * @param typeOfCoffee int that user insert from console
      * @return array of Strings type of coffee's number, name of coffee and time for prepare
      */
-    public String[] makeCoffee(int typeOfCoffee) {
+    String[] makeCoffee(int typeOfCoffee) {
         String coffee = "";
         int time = 0;
 

@@ -11,8 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final Logger LOGGER = Logger.getLogger(MainActivity.class.getName());
     public static Scanner input;
-    static boolean haveCoffee;
 
+    private static boolean sHaveCoffee;
     private volatile static ArrayDeque<Customer> sCustomerQueue;
 
     public static void main(String[] args) {
@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
                         bill.addToArray(billInfo, billList);
 
                         // Customer leave the queue
-                        haveCoffee = customer.takeCoffee(sCustomerQueue);
+                        sHaveCoffee = customer.takeCoffee(sCustomerQueue);
 
-                        if (haveCoffee) {
+                        if (sHaveCoffee) {
                             Thread customerThread = new Thread(customer);
                             customerThread.start();
                         }

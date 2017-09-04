@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                         if (haveCoffee) {
                             Thread customerThread = new Thread(customer);
                             customerThread.start();
-                            System.out.println("customer Thread is start");
                         }
                     }
                 }, Thread.currentThread().getName());

@@ -35,10 +35,6 @@ public class Barista {
         return new String[]{String.valueOf(checkNumber), coffee, String.valueOf(price), dateTime};
     }
 
-    public void insertBill(int[] typeOfCoffee, int[] count) {
-
-    }
-
     public boolean makeCoffee(String[] args, Customer customer) {
 
         int typeOfCoffee = Integer.valueOf(args[0]);

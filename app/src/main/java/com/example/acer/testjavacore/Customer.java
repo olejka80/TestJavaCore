@@ -31,7 +31,7 @@ class Customer implements Runnable {
 
     boolean isComing(ArrayDeque<Customer> customerQueue) {
         customerQueue.add(new Customer(1));
-        System.out.println("First customer is came " + customerQueue.size());
+        LOGGER.info("First customer is came " + "\n" + "Size of Queue: " + customerQueue.size());
         mRandom = new Random();
         long timeDelay = mRandom.nextInt(8_000) + 2_000;
         Thread thread = new Thread(() -> {
@@ -42,9 +42,7 @@ class Customer implements Runnable {
                     LOGGER.log(Level.SEVERE, e.getMessage(), e);
                 }
                 customerQueue.add(new Customer(i));
-                LOGGER.info(String.valueOf("Customer index: "
-                        + customerQueue.peekLast().getCustomerNumber()
-                        + "\n" + "      Size of Queue: " + customerQueue.size()));
+                LOGGER.info("Size of Queue: " + customerQueue.size());
             }
         }, Thread.currentThread().getName());
         thread.start();
@@ -98,15 +96,6 @@ class Customer implements Runnable {
                 LOGGER.info("Make me another type of coffee, please");
         }
         return typeOfCoffee;
-    }
-
-    public void makeOder(int[] typeOfCoffee, int[] count) {
-
-    }
-
-    public void makeOder(int[] americano, int[] capuchino, int[] latte, int[] amountOfAmericano,
-                         int[] amountOfCapuchino, int[] amountOfLatte) {
-
     }
 
     @Override
